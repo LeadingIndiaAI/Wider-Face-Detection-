@@ -2,17 +2,17 @@
 Keras implementation of Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks.
 cloned from https://github.com/yhenon/keras-frcnn/
 
-Please note that I currently am quite busy with other projects and unfortunately dont have a lot of time to spend on this maintaining this repository, but any contributions are welcome!
-
-
 USAGE:
 - Both theano and tensorflow backends are supported. However compile times are very high in theano, and tensorflow is highly recommended.
-- `train_frcnn.py` can be used to train a model. To train on Pascal VOC data, simply do:
-`python train_frcnn.py -p /path/to/pascalvoc/`. 
-- the Pascal VOC data set (images and annotations for bounding boxes around the classified objects) can be obtained from: http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
+- `train_frcnn.py` can be used to train a model. To train on WIDER face data, simply do:
+`python train_frcnn.py -p /annotate.txt`. 
 - simple_parser.py provides an alternative way to input data, using a text file. Simply provide a text file, with each
 line containing:
 
+this file is already provided as annotate.txt
+You have to save all the images in All_Images folder
+if you want to save images at some different folder just make a small change in annotation processing.py file by changing
+the path to your images folder in create_txt function.(at the bottom of python file)
     `filepath,x1,y1,x2,y2,class_name`
 
     For example:
@@ -41,12 +41,6 @@ paper. The anchor box sizes are [128, 256, 512] and the ratios are [1:1, 1:2, 2:
 - The tensorflow backend performs a resize on the pooling region, instead of max pooling. This is much more efficient and has little impact on results.
 
 
-Example output:
-
-![ex1](http://i.imgur.com/7Lmb2RC.png)
-![ex2](http://i.imgur.com/h58kCIV.png)
-![ex3](http://i.imgur.com/EbvGBaG.png)
-![ex4](http://i.imgur.com/i5UAgLb.png)
 
 ISSUES:
 
